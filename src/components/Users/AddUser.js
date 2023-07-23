@@ -11,9 +11,17 @@ const AddUser = () => {
 
     const addUserHandler = (event) => {
         event.preventDefault();
-        console.log(enteredUsername, enteredAge);
+
+        // don't save values if not validated
+        if(enteredUsername.trim().length === 0 || enteredAge.trim().length === 0){
+            return;
+        }
+        if (+enteredAge < 1){ //covert to num
+            return;
+        }
         setEnteredUsername('');
         setEnteredAge('');
+        console.log(enteredUsername, enteredAge);
     }
 
     const usernameChangeHandler = (event) => {

@@ -12,9 +12,17 @@ const Login = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   useEffect(() => {
-    setFormIsValid(
-      enteredEmail.includes('@') && enteredPassword.trim().length > 6
-    );
+    const identifier = setTimeout(() => {
+      console.log('timeout');
+      setFormIsValid(
+        enteredEmail.includes('@') && enteredPassword.trim().length > 6
+      );
+    }, 500); // run only after timeout after final keystroke
+
+    return () => {
+      console.log('clean up');
+      clearTimeout(identifier);
+    }; // runs when component is rerenders + after first sideEffect
   }, [ enteredEmail, enteredPassword]); // run only if one of these have changed 
 
   const emailChangeHandler = (event) => {

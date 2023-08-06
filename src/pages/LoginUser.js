@@ -9,6 +9,7 @@ const LoginUser = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
+      console.log('login use effect')
       const loggedInInfo = localStorage.getItem('isLoggedIn');
 
       if(loggedInInfo === '1'){

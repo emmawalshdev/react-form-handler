@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from "./pages/Login";
+import LoginUser from "./pages/LoginUser";
 import Users from "./pages/Users";
 
 const RoutesPath = () => {
@@ -9,7 +9,7 @@ const RoutesPath = () => {
         <Router>
             <Routes>
                 <Route path="/" exact element={<Users/>}/>
-                <Route path='/users' exact element={<Login/>}/>
+                <Route path='/users' exact element={<LoginUser/>}/>
             </Routes>
         </Router>
         </>

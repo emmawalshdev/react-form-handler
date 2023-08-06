@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import AddUser from '../components/Users/AddUser';
 import UserList from '../components/Users/UserList';
-import './Users.css';
+import classes from './Users.module.css';
 
 function Users() {
 

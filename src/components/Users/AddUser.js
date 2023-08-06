@@ -33,7 +33,7 @@ const AddUser = (props) => {
         }
 
         props.updateUserList(enteredName, enteredUserAge);
-        nameInputRef.current.value = '';
+        nameInputRef.current.value = ''; // clear values 
         ageInputRef.current.value = '';
     }
 

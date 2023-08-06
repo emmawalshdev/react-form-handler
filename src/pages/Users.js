@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import AddUser from './components/Users/AddUser';
-import UserList from './components/Users/UserList';
-import RoutesPath from './RoutesPath';
+import AddUser from '../components/Users/AddUser';
+import UserList from '../components/Users/UserList';
+import './Users.css';
 
-function App() {
+function Users() {
 
   const [userListItems, setUserListItems] = useState([]);
 
@@ -15,12 +15,10 @@ function App() {
 
   return (
     <div>
-      <RoutesPath/>
-      {/* hello
       <AddUser updateUserList={saveUserItems}/>
-      <UserList users={userListItems}/> */}
+      <UserList users={userListItems}/>
     </div>
   );
 }
 
-export default App;
+export default Users;

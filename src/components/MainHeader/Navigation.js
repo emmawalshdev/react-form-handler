@@ -1,11 +1,16 @@
 import React from 'react';
-
-import classes from './Navigation.module.css';
+import { Link } from 'react-router-dom';
+import classes from './Navigation.module.css';;
 
 const Navigation = (props) => {
   return (
     <nav className={classes.nav}>
       <ul>
+        <li>
+        <Link to='/users' >
+          Users
+        </Link>
+        </li>
         {props.isLoggedIn && (
           <li>
             <a href="/">Users</a>

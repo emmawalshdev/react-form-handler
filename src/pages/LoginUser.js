@@ -15,7 +15,7 @@ const LoginUser = () => {
       if(loggedInInfo === '1'){
         setIsLoggedIn(true);
       }
-    }, []); // run only if dependencies change
+    }, []); // run only when first rendered
 
     const loginHandler = (email, password) => {
       // We should of course check email and password

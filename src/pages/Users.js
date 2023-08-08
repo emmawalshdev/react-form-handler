@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import AddUser from '../components/Users/AddUser';
 import UserList from '../components/Users/UserList';
-import classes from './Users.module.css';
+import MainHeader from '../components/MainHeader/MainHeader';
 
 function Users() {
 
@@ -14,10 +14,11 @@ function Users() {
   }
 
   return (
-    <div>
+    <React.Fragment>
+      <MainHeader/>
       <AddUser updateUserList={saveUserItems}/>
       <UserList users={userListItems}/>
-    </div>
+    </React.Fragment>
   );
 }
 

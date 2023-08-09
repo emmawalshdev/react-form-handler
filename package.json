@@ -31,5 +31,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "eslint-plugin-react": "^7.33.1",
+    "stylelint": "^15.10.2",
+    "stylelint-config-standard": "^34.0.0"
   }
 }

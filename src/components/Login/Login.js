@@ -45,11 +45,15 @@ const Login = (props) => {
     isValid: false
   });
 
+  // pull out values for isValid
+  const { isValid: emailIsValid } = emailState; // use object destructuring to extract isvalid from email state, store as emailIsValid (alias)
+  const { isValid: passwordIsValid } = passwordState
+
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log('timeout - checking form validity');
       setFormIsValid(
-        emailState.isValid && passwordState.isValid
+        emailIsValid && passwordIsValid
       );
     }, 500); // run only after timeout after final keystroke
 
@@ -57,7 +61,7 @@ const Login = (props) => {
       console.log('clean up');
       clearTimeout(identifier);
     }; // runs when component is rerenders + after first sideEffect
-  }, [ emailState, passwordState ]); // run only if one of these have changed 
+  }, [ emailIsValid, passwordIsValid ]); // run only if one of these have changed 
 
 
   const emailChangeHandler = (event) => {

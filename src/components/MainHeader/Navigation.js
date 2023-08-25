@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import classes from './Navigation.module.css';
 import AuthContext from '../../context/auth-context';
 
-const Navigation = (props) => {
+const Navigation = () => {
   const ctx = useContext(AuthContext);
 
   return (

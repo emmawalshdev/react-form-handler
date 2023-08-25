@@ -37,6 +37,8 @@ const LoginUser = () => {
             // if value changes then update is passed down
             value={{
               isLoggedIn: isLoggedIn,
+              onLogout: logoutHandler
+              // every component which uses authcotext can access these values
             }}
           >
           <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />

@@ -1,8 +1,10 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 
 import Login from '../components/Login/Login';
 import Home from '../components/Home/Home';
 import MainHeader from '../components/MainHeader/MainHeader';
+
+import AuthContext from '../context/auth-context';
 
 const LoginUser = () => {
   const ctx = useContext(AuthContext);
@@ -10,7 +12,7 @@ const LoginUser = () => {
   return (
       <React.Fragment>
         {/* make available to all children */}
-        <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+        <MainHeader isAuthenticated={ctx.isLoggedIn} onLogout={ctx.logoutHandler} />
         <main>
           {!ctx.isLoggedIn && <Login/>}
           {ctx.isLoggedIn && <Home/>}

@@ -11,7 +11,7 @@ const Navigation = () => {
       <ul>
         {ctx.isLoggedIn && (
           <li>
-            <Link to='/' >
+            <Link to='/users' >
               Users
             </Link>
           </li>

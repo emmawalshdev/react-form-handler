@@ -104,6 +104,8 @@ const Login = (props) => {
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
+        <h2>User Login</h2>
+        <p>Login to begin using Teamwork</p>
         <Input 
           id="email" 
           label="E-Mail" 

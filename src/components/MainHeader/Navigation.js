@@ -9,11 +9,14 @@ const Navigation = () => {
   return (
       <nav className={classes.nav}>
       <ul>
-        <li>
-        <Link to='/' >
-          Users
-        </Link>
-        </li>
+        {ctx.isLoggedIn && (
+          <li>
+            <Link to='/' >
+              Users
+            </Link>
+          </li>
+        )}
+
         {ctx.isLoggedIn && (
           <li>
             <button onClick={ctx.onLogout}>Logout</button>

@@ -8,7 +8,8 @@ const RoutesPath = () => {
         <>
         <Router>
             <Routes>
-                <Route path="/" exact element={<Users/>}/>
+                <Route path="/" exact element={<LoginUser/>}/>
+                <Route path="/users" exact element={<Users/>}/>
                 <Route path='/login' exact element={<LoginUser/>}/>
             </Routes>
         </Router>

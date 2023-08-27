@@ -19,6 +19,13 @@ const Navigation = () => {
             <button onClick={ctx.onLogout}>Logout</button>
           </li>
         )}
+        {!ctx.isLoggedIn && (
+          <li>
+            <Link to='/login' >
+              Login
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

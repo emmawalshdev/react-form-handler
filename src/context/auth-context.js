@@ -23,6 +23,7 @@ export const AuthContextProvider = (props) => {
     }, []); // run only when first rendered
 
     const logoutHandler = () => {
+        console.log('loggedout')
         setIsLoggedIn(false);
     };
 

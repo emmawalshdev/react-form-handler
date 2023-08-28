@@ -1,12 +1,16 @@
-import React, {useState, Fragment, useRef} from "react";
+import React, {useState, Fragment, useRef, useContext} from "react";
+import { Link } from 'react-router-dom';
 import Card from "../UI/Card";
 import classes from './AddUser.module.css';
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
+import AuthContext from "../../context/auth-context";
 
 const AddUser = (props) => {
     const nameInputRef = useRef();
     const ageInputRef = useRef();
+
+    const ctx = useContext(AuthContext);
 
     // useState
     const [error, setError] = useState();
@@ -44,19 +48,28 @@ const AddUser = (props) => {
     return ( 
         <Fragment>
             {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}/>}
-            <Card className={classes.input}>
-                <h2>Add Users</h2>
-                <form onSubmit={addUserHandler}>
-                    <label htmlFor="username">Username</label>
-                    <input id="username" 
-                      type="text" 
-                      ref={nameInputRef}></input>
-                    <label htmlFor="age">Age (Years)</label>
-                    <input id="age" type="number" 
-                      ref={ageInputRef}></input>
-                    <Button type="submit">Add User</Button>
-                </form>
-            </Card>
+            {/* only show add user card if logged in */}
+            {ctx.isLoggedIn && (
+                <Card className={classes.input}>
+                    <h2>Add Users</h2>
+                    <form onSubmit={addUserHandler}>
+                        <label htmlFor="username">Username</label>
+                        <input id="username" 
+                            type="text" 
+                            ref={nameInputRef}></input>
+                        <label htmlFor="age">Age (Years)</label>
+                        <input id="age" type="number" 
+                            ref={ageInputRef}></input>
+                        <Button type="submit">Add User</Button>
+                    </form>
+                </Card>
+            )}
+            {!ctx.isLoggedIn && (
+                <Card className={classes.input} >
+                    <h2>You have been Logged out.</h2>
+                    <p>Please <Link to="/login">login</Link> to begin using Teamwork.</p>
+                </Card>
+            )}
         </Fragment>
     );
 };
